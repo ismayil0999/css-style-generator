@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<style>
+    
+</style>
+<body>
+   <div class="container">
+   <div class="style-box">
+    <div id="div">
+
+    </div>
+   </div>
+   <div class="inputs">
+       <label>Border</label>
+    <input type="range"  id="border" class="input">
+    <label>Size</label>
+    <input type="range" id="size" min="50" max="250" class="input">
+    <label>Background</label>
+    <input type="color" class="color"  id="colorpick" class="input">
+    <label>X-Shadow</label>
+    <input type="range"  id="shadows" class="input" value="0" max="45">
+    <label>Y-Shadow</label>
+    <input type="range"  id="shadows" class="input" value="0" max="45">
+    <label>Shadow color</label>
+    <input type="color" class="color" id="shadow-color" class="input">
+    <textarea id="result">
+
+    </textarea>
+   </div>
+   </div>
+</body>
+<script>
+var inputs=document.querySelectorAll("input")
+var div=document.getElementById("div")
+var result=document.getElementById("result")
+inputs.forEach(c=>{
+    c.addEventListener("input",function(){
+        changeValue()
+    })
+})
+function changeValue(){
+div.style.borderRadius=inputs[0].value + "px"
+div.style.width=inputs[1].value + "px"
+div.style.height=inputs[1].value + "px"
+div.style.background=inputs[2].value
+div.style.boxShadow=`${inputs[3].value}px ${inputs[3].value}px 10px ${inputs[5].value},
+${-inputs[4].value}px ${-inputs[4].value}px 10px ${inputs[5].value}
+`
+console.log(inputs[7])
+
+result.innerHTML=`border-radius: ${inputs[0].value} % 
+width:${inputs[1].value} px
+height:${inputs[1].value} px
+background:${inputs[2].value}
+box-shadow:${inputs[3].value}px ${inputs[3].value}px 10px ${inputs[5].value},
+${-inputs[4].value}px ${-inputs[4].value}px 10px ${inputs[5].value}
+`
+}
+</script>
+</html>
